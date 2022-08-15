@@ -5,8 +5,17 @@ mode: Rule
 log-level: info
 external-controller: :9090
 proxies:
-  - {name: heroku-v2ay-xmcproxy1, server: xmcproxy1.herokuapp.com, port: 443, type: vmess, uuid: ad806487-2d26-4636-98b6-ab85cc8521f7, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /}
-  - {name: Relay_-🇳🇱NL_05 | 6.20Mb, server: sgzx-cn01.gatknqh.cn, port: 65076, type: vmess, uuid: 0253b574-8020-3186-a647-0267295ac9bb, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /rocket, headers: {Host: "%7B%22Host%22:%22sgzx-cn01.gatknqh.cn%22%7D"}}}
+  - name: heroku-v2ay-xmcproxy1
+    type: vmess
+    server: xmcproxy1.herokuapp.com
+    port: 443
+    uuid: ad806487-2d26-4636-98b6-ab85cc8521f7
+    alterId: 0
+    cipher: auto
+    network: ws
+    ws-path: /
+    tls: true
+    skip-cert-verify: true
 proxy-groups:
   - name: 🚀 节点选择
     type: select
@@ -14,7 +23,6 @@ proxy-groups:
       - ♻️ 自动选择
       - DIRECT
       - heroku-v2ay-xmcproxy1
-      - Relay_-🇳🇱NL_05 | 6.20Mb
   - name: ♻️ 自动选择
     type: url-test
     url: http://www.gstatic.com/generate_204
@@ -22,7 +30,6 @@ proxy-groups:
     tolerance: 50
     proxies:
       - heroku-v2ay-xmcproxy1
-      - Relay_-🇳🇱NL_05 | 6.20Mb
    - name: 🌍 国外媒体
     type: select
     proxies:
@@ -30,28 +37,24 @@ proxy-groups:
       - ♻️ 自动选择
       - 🎯 全球直连
       - heroku-v2ay-xmcproxy1
-      - Relay_-🇳🇱NL_05 | 6.20Mb
   - name: 📲 电报信息
     type: select
     proxies:
       - 🚀 节点选择
       - 🎯 全球直连
       - heroku-v2ay-xmcproxy1
-      - Relay_-🇳🇱NL_05 | 6.20Mb
   - name: Ⓜ️ 微软服务
     type: select
     proxies:
       - 🎯 全球直连
       - 🚀 节点选择
       - heroku-v2ay-xmcproxy1
-      - Relay_-🇳🇱NL_05 | 6.20Mb
   - name: 🍎 苹果服务
     type: select
     proxies:
       - 🚀 节点选择
       - 🎯 全球直连
       - heroku-v2ay-xmcproxy1
-      - Relay_-🇳🇱NL_05 | 6.20Mb
   - name: 📢 谷歌FCM
     type: select
     proxies:
@@ -59,7 +62,6 @@ proxy-groups:
       - 🎯 全球直连
       - ♻️ 自动选择
       - heroku-v2ay-xmcproxy1
-      - Relay_-🇳🇱NL_05 | 6.20Mb
   - name: 🎯 全球直连
     type: select
     proxies:
@@ -82,8 +84,7 @@ proxy-groups:
       - 🚀 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - Relay_-🇺🇸US_03 | 8.25Mb
-      - Relay_-🇳🇱NL_05 | 6.20Mb
+      - heroku-v2ay-xmcproxy1
 rules:
  - DOMAIN-SUFFIX,acl4.ssr,🎯 全球直连
  - DOMAIN-SUFFIX,ip6-localhost,🎯 全球直连
