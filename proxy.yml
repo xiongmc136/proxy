@@ -14,7 +14,7 @@ proxies:
     alterId: 0
     cipher: auto
     network: ws
-    ws-path: /
+    ws-path: /proxy1
     tls: true
     skip-cert-verify: true
   - name: heroku-v2ay-xmcproxy2
@@ -25,7 +25,18 @@ proxies:
     alterId: 0
     cipher: auto
     network: ws
-    ws-path: /
+    ws-path: /proxy2
+    tls: true
+    skip-cert-verify: true
+  - name: heroku-v2ay-xmcproxy3
+    type: vmess
+    server: xmcproxy3.herokuapp.com
+    port: 443
+    uuid: ad806487-2d26-4636-98b6-ab85cc8521f7
+    alterId: 0
+    cipher: auto
+    network: ws
+    ws-path: /proxy3
     tls: true
     skip-cert-verify: true
 proxy-groups:
@@ -36,6 +47,7 @@ proxy-groups:
       - DIRECT
       - heroku-v2ay-xmcproxy1
       - heroku-v2ay-xmcproxy2
+      - heroku-v2ay-xmcproxy3
   - name: ♻️ 自动选择
     type: url-test
     url: http://www.gstatic.com/generate_204
@@ -44,6 +56,7 @@ proxy-groups:
     proxies:
       - heroku-v2ay-xmcproxy1
       - heroku-v2ay-xmcproxy2
+      - heroku-v2ay-xmcproxy3
   - name: 🎯 全球直连
     type: select
     proxies:
@@ -68,6 +81,7 @@ proxy-groups:
       - ♻️ 自动选择
       - heroku-v2ay-xmcproxy1
       - heroku-v2ay-xmcproxy2
+      - heroku-v2ay-xmcproxy3
 rules:
  - DOMAIN-SUFFIX,acl4.ssr,🎯 全球直连
  - DOMAIN-SUFFIX,ip6-localhost,🎯 全球直连
