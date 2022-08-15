@@ -17,6 +17,17 @@ proxies:
     ws-path: /
     tls: true
     skip-cert-verify: true
+  - name: heroku-v2ay-xmcproxy1
+    type: vmess
+    server: xmcproxy2.herokuapp.com
+    port: 443
+    uuid: ad806487-2d26-4636-98b6-ab85cc8521f7
+    alterId: 0
+    cipher: auto
+    network: ws
+    ws-path: /
+    tls: true
+    skip-cert-verify: true
 proxy-groups:
   - name: 🚀 节点选择
     type: select
